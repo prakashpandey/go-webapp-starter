@@ -20,5 +20,7 @@ func main() {
 		},
 	}
 	s.routes()
-	log.Fatal(http.ListenAndServe(":8284", nil))
+	url := ":8855"
+	log.Printf("Started webserver at %s", url)
+	log.Fatal(http.ListenAndServe(url, nil))
 }
