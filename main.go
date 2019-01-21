@@ -1,6 +1,9 @@
 package main
 
 import (
+	"log"
+	"net/http"
+
 	"github.com/prakashpandey/sample-go-webapp/db"
 )
 
@@ -13,8 +16,9 @@ type Server struct {
 func main() {
 	s := &Server{
 		db: db.Mongodb{
-			// Initialize the real mongodb object here
+		// Initialize the real mongodb object here
 		},
 	}
 	s.routes()
+	log.Fatal(http.ListenAndServe(":8284", nil))
 }
