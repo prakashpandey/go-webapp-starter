@@ -19,4 +19,3 @@ A web application starter project in golang
 └── user
     └── user.go
 ```
-
