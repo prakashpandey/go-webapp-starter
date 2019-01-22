@@ -62,4 +62,4 @@ Package `user` implement user `CRUD` operations.
 
 ## LICENSE
 
-MIT, please visit [LICENSE](LICENSE) for more information.
+`The Unlicense`, please visit [LICENSE](LICENSE) for more information.
