@@ -1,33 +1,27 @@
 package main
 
 import (
-	"log"
 	"net/http"
 
 	"github.com/prakashpandey/sample-go-webapp/auth"
+	"github.com/prakashpandey/sample-go-webapp/index"
 	"github.com/prakashpandey/sample-go-webapp/user"
 )
 
 func (s *Server) routes() {
 	// define all routes here
-	http.HandleFunc("/", s.mustAuth(s.rootHandler))
+	http.HandleFunc("/", index.HelloHandler)
+	http.HandleFunc("/user", s.mustAuth(user.CreateUserHandler))
 }
 
-// authanticate all protected routes
+// authenticate all protected routes
 func (s *Server) mustAuth(fn func(w http.ResponseWriter, r *http.Request)) func(w http.ResponseWriter, r *http.Request) {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if auth.Validate(user.Username, user.Password) {
+		if auth.Validate("elon@spacex.com", "WayToMars") {
 			fn(w, r)
 			return
 		}
-		w.Write([]byte("Un-Authorised user"))
+		w.Write([]byte("Un-Authorized user"))
 		w.WriteHeader(http.StatusUnauthorized)
 	})
-}
-
-func (s *Server) rootHandler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(http.StatusOK)
-	if _, err := w.Write([]byte("Hi from root handler")); err != nil {
-		log.Printf("error: %s", err.Error())
-	}
 }

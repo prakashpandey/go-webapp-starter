@@ -5,7 +5,6 @@ A web application starter project in golang
 # Project Structure
 
 ```bash
-
 ├── Makefile
 ├── README.md
 ├── auth
@@ -13,9 +12,11 @@ A web application starter project in golang
 ├── db
 │   ├── database.go
 │   └── mongodb.go
+├── index
+│   └── index.go
 ├── main.go
 ├── routes.go
 └── user
     └── user.go
-    
 ```
+
