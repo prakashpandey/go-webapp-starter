@@ -16,11 +16,11 @@ type Server struct {
 func main() {
 	s := &Server{
 		db: db.Mongodb{
-		// Initialize the real mongodb object here
+			// Initialize the real mongodb object here
 		},
 	}
 	s.routes()
-	url := ":8855"
+	url := ":8284"
 	log.Printf("Started webserver at %s", url)
 	log.Fatal(http.ListenAndServe(url, nil))
 }

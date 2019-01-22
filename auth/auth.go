@@ -2,5 +2,6 @@ package auth
 
 // Validate user credentials
 func Validate(uname, password string) bool {
-	return false
+	// implement the validation logic here
+	return true
 }
