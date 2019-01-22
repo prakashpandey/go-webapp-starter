@@ -9,4 +9,5 @@ run:
 
 .PHONY:	clean
 clean:
-	rm go-sample-webapp-starter
+	go clean
+	rm -f go-sample-webapp-starter
