@@ -6,7 +6,7 @@ A web application starter project in golang
 
 ```bash
 
-  ├── Makefile
+├── Makefile
 ├── README.md
 ├── auth
 │   └── auth.go
