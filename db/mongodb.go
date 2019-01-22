@@ -16,6 +16,11 @@ type DB struct {
 	// other fields here
 }
 
+// NewDB creates new instance of database
+func NewDB() *DB {
+	return &DB{}
+}
+
 // InsertUser in database
 func (db DB) InsertUser(u *user.User) error {
 	// store user in database here

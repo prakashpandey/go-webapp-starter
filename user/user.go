@@ -19,12 +19,13 @@ func CreateUserHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-type UserHandler struct {
+// Handler sample user handler
+type Handler struct {
 	Dao Dao
 }
 
 // DeleteUserHandler handle user delete request
-func (u *UserHandler) DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
+func (u *Handler) DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
 	u.Dao.DeleteUser(&User{})
 	w.WriteHeader(http.StatusOK)
 	w.Write([]byte("user deleted"))

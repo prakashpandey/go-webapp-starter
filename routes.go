@@ -13,19 +13,19 @@ import (
 var database = db.DB{}
 
 // Add all handlers here
-var userHandler = user.UserHandler{
+var userHandler = user.Handler{
 	Dao: database,
 }
 
-func (s *Server) routes() {
+func routes() {
 	// define all routes here
 	http.HandleFunc("/", index.HelloHandler)
-	http.HandleFunc("/user", s.mustAuth(user.CreateUserHandler))
-	http.HandleFunc("/user/delete", s.mustAuth(userHandler.DeleteUserHandler))
+	http.HandleFunc("/user", mustAuth(user.CreateUserHandler))
+	http.HandleFunc("/user/delete", mustAuth(userHandler.DeleteUserHandler))
 }
 
 // authenticate all protected routes
-func (s *Server) mustAuth(fn func(w http.ResponseWriter, r *http.Request)) func(w http.ResponseWriter, r *http.Request) {
+func mustAuth(fn func(w http.ResponseWriter, r *http.Request)) func(w http.ResponseWriter, r *http.Request) {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if auth.Validate("elon@spacex.com", "WayToMars") {
 			fn(w, r)
