@@ -9,12 +9,12 @@ import (
 	"github.com/prakashpandey/sample-go-webapp/user"
 )
 
-// database will be almost same for every handler
-var database = db.DB{}
+// DB will be almost same for every handler
+var DB = db.NewDB()
 
 // Add all handlers here
 var userHandler = user.Handler{
-	Dao: database,
+	Dao: DB,
 }
 
 func routes() {

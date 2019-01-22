@@ -10,12 +10,12 @@ A web application starter project in golang
 ├── auth
 │   └── auth.go
 ├── db
-│   ├── database.go
 │   └── mongodb.go
 ├── index
 │   └── index.go
 ├── main.go
 ├── routes.go
 └── user
+    ├── dao.go
     └── user.go
 ```

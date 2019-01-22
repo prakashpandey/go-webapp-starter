@@ -17,8 +17,8 @@ type DB struct {
 }
 
 // NewDB creates new instance of database
-func NewDB() *DB {
-	return &DB{}
+func NewDB() DB {
+	return DB{}
 }
 
 // InsertUser in database
