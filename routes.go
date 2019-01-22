@@ -21,7 +21,8 @@ func (s *Server) mustAuth(fn func(w http.ResponseWriter, r *http.Request)) func(
 			fn(w, r)
 			return
 		}
-		w.Write([]byte("Un-Authorized user"))
 		w.WriteHeader(http.StatusUnauthorized)
+		w.Write([]byte("Un-Authorized user"))
+		return
 	})
 }
