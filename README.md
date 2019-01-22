@@ -1,2 +1,2 @@
 # sample-go-webapp
-A vanila web application starter in golang
+A web application starter project in golang
