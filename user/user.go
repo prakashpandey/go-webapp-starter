@@ -18,3 +18,14 @@ func CreateUserHandler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("error: %s", err.Error())
 	}
 }
+
+type UserHandler struct {
+	Dao Dao
+}
+
+// DeleteUserHandler handle user delete request
+func (u *UserHandler) DeleteUserHandler(w http.ResponseWriter, r *http.Request) {
+	u.Dao.DeleteUser(&User{})
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte("user deleted"))
+}

@@ -3,11 +3,13 @@
 package db
 
 import (
+	"log"
+
 	"github.com/prakashpandey/sample-go-webapp/user"
 )
 
-// Mongodb data structure
-type Mongodb struct {
+// DB data structure
+type DB struct {
 	//
 	// make mongodb object part of this struct
 	//
@@ -15,8 +17,15 @@ type Mongodb struct {
 }
 
 // InsertUser in database
-func (m Mongodb) InsertUser(u *user.User) error {
+func (db DB) InsertUser(u *user.User) error {
 	// store user in database here
+	return nil
+}
+
+// DeleteUser in database
+func (db DB) DeleteUser(u *user.User) error {
+	// store user in database here
+	log.Printf("I am deleting user.")
 	return nil
 }
 
