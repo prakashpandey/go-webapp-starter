@@ -59,3 +59,7 @@ A sample package implementing hello world functionality.
 ### user
 
 Package `user` implement user `CRUD` operations.
+
+## LICENSE
+
+MIT, please visit [LICENSE](LICENSE) for more information.
