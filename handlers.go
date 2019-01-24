@@ -15,24 +15,20 @@ func dispatchMethods(m map[string]http.HandlerFunc) http.HandlerFunc {
 			mustAuth(fn)(w, r)
 			return
 		}
-		methodNotAllowedHandler()(w, r)
+		methodNotAllowedHandler(w, r)
 	})
 }
 
-func methodNotAllowedHandler() http.HandlerFunc {
+func methodNotAllowedHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("In methodNotAllowedHandler func")
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusMethodNotAllowed)
-		w.Write([]byte("Method not allowed"))
-	})
+	w.WriteHeader(http.StatusMethodNotAllowed)
+	w.Write([]byte("Method not allowed"))
 }
 
-func unAuthorizedHandler() http.HandlerFunc {
+func unAuthorizedHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("In unAuthorizedHandler func")
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		w.WriteHeader(http.StatusUnauthorized)
-		w.Write([]byte("Un-Authorized"))
-	})
+	w.WriteHeader(http.StatusUnauthorized)
+	w.Write([]byte("Un-Authorized"))
 }
 
 // authenticate all protected routes
@@ -43,6 +39,6 @@ func mustAuth(fn func(w http.ResponseWriter, r *http.Request)) http.HandlerFunc 
 			fn(w, r)
 			return
 		}
-		unAuthorizedHandler()
+		unAuthorizedHandler(w, r)
 	})
 }
