@@ -34,10 +34,8 @@ A web application starter project in golang
 
 - `/`
   
-- `/user`
-  
-- `/user/delete`
-  
+- `/user`: Methods allowed [`POST`, `DELETE`]
+    
 ## Packages
 
 ### main
