@@ -13,9 +13,8 @@ func routes() {
 	http.HandleFunc("/", index.HelloHandler)
 
 	// user routes
-	http.HandleFunc("/user", dispatchMethods(map[string]http.HandlerFunc{
+	http.HandleFunc("/user", DispatchMethods(map[string]http.HandlerFunc{
 		"POST":   userHandler.Create,
-		"DELETE": userHandler.Delete,
-	},
-	))
+		"DELETE": MustAuth(userHandler.Delete),
+	}))
 }

@@ -1,0 +1,6 @@
+{
+	"ImportPath": "github.com/prakashpandey/sample-go-webapp",
+	"GoVersion": "go1.11",
+	"GodepVersion": "v80",
+	"Deps": []
+}
