@@ -14,7 +14,12 @@ func routes() {
 
 	// user routes
 	http.HandleFunc("/user", DispatchMethods(map[string]http.HandlerFunc{
-		"POST":   userHandler.Create,
-		"DELETE": MustAuth(userHandler.Delete),
+		http.MethodPost: userHandler.Create,
+		http.MethodGet:  MustAuth(userHandler.Get),
+	}))
+
+	// admin routes
+	http.HandleFunc("/admin", DispatchMethods(map[string]http.HandlerFunc{
+		http.MethodDelete: MustAuth(adminHandler.DeleteUser),
 	}))
 }

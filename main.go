@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/prakashpandey/sample-go-webapp/admin"
 	"github.com/prakashpandey/sample-go-webapp/db"
 	"github.com/prakashpandey/sample-go-webapp/user"
 )
@@ -13,6 +14,11 @@ var DB = db.NewDB()
 
 // Add all handlers here
 var userHandler = user.Handler{
+	Dao: DB,
+}
+
+// Add all handlers here
+var adminHandler = admin.Handler{
 	Dao: DB,
 }
 
